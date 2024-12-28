@@ -18,8 +18,26 @@ $listings = getListings();
     <div class="col-md-3">
         <form action="" method="get">
             <h2>Filtrer</h2>
-            <div>
+            <div class="p-3 border-bottom">
                 <input type="text" name="search" id="search" class="form-control" placeholder="Recherhcer">
+            </div>
+            <div class="p-3 border-bottom">
+                <label for="price">Prix</label>
+                <div class="input-group">
+                    <input type="number" name="min-price" id="min-price" class="form-control" placeholder="Prix minimum">
+                    <span class="input-group-text">€</span>
+
+                </div>
+                <div class="input-group">
+                    <input type="number" name="max-price" id="max-price" class="form-control" placeholder="Prix maximum">
+                    <span class="input-group-text">€</span>
+
+                </div>
+
+            </div>
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary w-100">Filtrer</button>
+
             </div>
         </form>
 
@@ -30,7 +48,7 @@ $listings = getListings();
 
 
         <div class="row">
-            <?php foreach ($listings as $listing) {
+            <?php foreach ($listings as $key => $listing) {
                 require "templates/listing_part.php";
             } ?>
 
