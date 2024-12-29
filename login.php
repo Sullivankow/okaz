@@ -6,7 +6,7 @@ require_once "templates/header.php";
 
 <div class="form-signin w-100 m-auto">
     <form method="post">
-        <img class="mb-4" src="assets\images\logo-okaz.png" alt="logo" width=75" height="55">
+        <img class="mb-4" src="" alt="logo" width=75" height="55">
         <h1 class="h3 mb-3 fw-normal">Se connecter</h1>
 
         <div class="form-floating">

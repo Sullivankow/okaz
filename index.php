@@ -2,12 +2,17 @@
 require_once "templates/header.php";
 require_once "libs/listing.php";
 require_once "libs/category.php";
-
+require_once "libs/pdo.php";
 
 $listings = getListings();
 $categories = getCategories();
 
-
+$query = $pdo->prepare("SELECT * FROM category WHERE id = :id");
+$query->bindValue(':id', 1, PDO::PARAM_INT);
+$query->execute();
+//fetch() nous permet de récupérer une seule ligne
+$result = $query->fetch(PDO::FETCH_ASSOC);
+var_dump($result);
 
 
 ?>
