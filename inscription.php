@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //Est ce que le formulaire est soum
     $verif = verifyUser($_POST);
     if ($verif === true) {
         $resAdd = addUser($pdo, $_POST["username"], $_POST["email"], $_POST["password"]);
-        header("Location: login.php");
+        header("Location: login.php"); //Redirection vers le login
     } else {
         $errors = $verif;
     }

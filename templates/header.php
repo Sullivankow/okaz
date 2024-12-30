@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -23,13 +28,21 @@
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="index.php" class="nav-link px-2 link-secondary">Accueil</a></li>
-                <li><a href="annonce.php" class="nav-link px-2">Annonces</a></li>
+                <li><a href="annonces.php" class="nav-link px-2">Annonces</a></li>
 
             </ul>
 
             <div class="col-md-3 text-end">
-                <a class="btn btn-outline-primary me-2" href="login.php">Connexion</a>
-                <a class="btn btn-primary" href="inscription.php">Inscription</a>
+
+                <?php
+                if (isset($_SESSION["user"])): ?>
+                    <span>Bonjour <?= $_SESSION["user"]["username"] ?></span>
+                    <a class="btn btn-primary" href="logout.php">Déconnexion</a>
+
+                <?php else: ?>
+                    <a class="btn btn-outline-primary me-2" href="login.php">Connexion</a>
+                    <a class="btn btn-primary" href="inscription.php">Inscription</a>
+                <?php endif; ?>
             </div>
         </header>
         <main>
