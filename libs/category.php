@@ -1,16 +1,9 @@
 <?php
-
-
-function getCategories()
+//Fonction pour récupérer la liste des catégories dans la base de données
+function getCategories(PDO $pdo)
 {
-
-    return [
-
-        ["name" => "Jeux videos", "icon" => "joystick"],
-        ["name" => "Meubles", "icon" => "lamp"],
-        ["name" => "Vêtements", "icon" => "handbag"],
-
-
-
-    ];
+    $sql = "SELECT * FROM category";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    return $query->fetchAll(PDO::FETCH_ASSOC);
 }
